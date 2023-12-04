@@ -15,8 +15,8 @@ MonoBehaviour:
   question: "\"The Witcher\" oyun serisi hangi t\xFCr bir RPG (Rol Yapma Oyunu) olarak
     bilinir?"
   answers:
-  - a) Strateji RPG
-  - b) MMO RPG
-  - c) Korku RPG
-  - d) Aksiyon RPG
+  - Strateji RPG
+  - MMO RPG
+  - Korku RPG
+  - Aksiyon RPG
   correctAnswerIndex: 3

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: "\"Red Dead Redemption 2\" oyunu hangi tarihsel d\xF6nemde ge\xE7mektedir?"
   answers:
-  - "a) Antik Roma D\xF6nemi"
-  - "b) Orta \xC7a\u011F"
-  - "c) Amerikan Vah\u015Fi Bat\u0131s\u0131"
-  - d) Gelecekteki bir distopya
+  - "Antik Roma D\xF6nemi"
+  - "Orta \xC7a\u011F"
+  - "Amerikan Vah\u015Fi Bat\u0131s\u0131"
+  - Gelecekteki bir distopya
   correctAnswerIndex: 2

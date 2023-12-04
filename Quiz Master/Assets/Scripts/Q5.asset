@@ -15,8 +15,8 @@ MonoBehaviour:
   question: "\"Assassin's Creed\" serisinde hangi organizasyon, oyunlar\u0131n temel
     konular\u0131ndan birini olu\u015Fturur?"
   answers:
-  - a) Knights Templar
-  - b) Illuminati
-  - c) The Brotherhood
-  - d) The Order of the Ancients
+  - Knights Templar
+  - Illuminati
+  - The Brotherhood
+  - The Order of the Ancients
   correctAnswerIndex: 2

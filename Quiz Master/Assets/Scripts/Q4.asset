@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: "\"Assassin's Creed\" serisi hangi t\xFCrde oyunlardan ilham al\u0131r?"
   answers:
-  - a) Bilim kurgu
-  - "b) Ger\xE7ek tarih"
-  - c) Fantastik
-  - d) Western
+  - Bilim kurgu
+  - "Ger\xE7ek tarih"
+  - Fantastik
+  - Western
   correctAnswerIndex: 1

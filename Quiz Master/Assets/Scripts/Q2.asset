@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: '"God of War" oyununun ana karakteri kimdir?'
   answers:
-  - a) Kratos
-  - b) Atreus
-  - c) Zeus
-  - d) Hades
+  - Kratos
+  - Atreus
+  - Zeus
+  - Hades
+  correctAnswerIndex: 0
