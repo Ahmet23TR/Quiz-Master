@@ -703,6 +703,7 @@ MonoBehaviour:
   - {fileID: 448534132}
   defaultAnswerSprite: {fileID: 21300000, guid: f99614923ad5a495490332e318357f4a, type: 3}
   correctAnswerSprite: {fileID: 21300000, guid: 21252ce87920d4a1ca025f5a1c6b1673, type: 3}
+  timerImage: {fileID: 599666294}
 --- !u!1 &1157462183
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1218330529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,8 +1365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ace0b5ce0c04646820670b95060f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerToCompleteQuestion: 5
-  timeToShowCorrectAnswer: 10
+  timerToCompleteQuestion: 30
+  timeToShowCorrectAnswer: 5
+  loadNextQuestion: 0
+  fillFraction: 0
   isAnsweringQuestion: 0
 --- !u!4 &1836898009
 Transform:

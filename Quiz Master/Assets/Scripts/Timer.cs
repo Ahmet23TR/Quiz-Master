@@ -8,9 +8,10 @@ public class Timer : MonoBehaviour
     [SerializeField] float timeToShowCorrectAnswer = 10f;
 
     public bool loadNextQuestion;
-    public bool isAnsweringQuestion = false;
     public float fillFraction;
+    public bool isAnsweringQuestion;
     float timerValue;
+    
     void Update()
     {
         UpdateTimer();
@@ -48,8 +49,6 @@ public class Timer : MonoBehaviour
                 timerValue = timerToCompleteQuestion;
                 loadNextQuestion = true;
             }
-        }
-        Debug.Log(timerValue);
-        
+        }        
     }
 }

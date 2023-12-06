@@ -4,25 +4,61 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using Unity.Mathematics;
 
 public class Quiz : MonoBehaviour
 {
+    [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
-    [SerializeField] QuestionSO question;
+    [SerializeField] List<QuestionSO> questions = new List<QuestionSO>();
+    QuestionSO currentQuestion;
+
+    [Header("Answers")]
     [SerializeField] GameObject[] answerButtons;
     int correctAnswerIndex;
+    bool hasAnsweredEarly;
+
+    [Header("Button Colors")]
     [SerializeField] Sprite defaultAnswerSprite;
     [SerializeField] Sprite correctAnswerSprite;
+
+    [Header("Timer")]
+    [SerializeField] Image timerImage;
+    Timer timer;
     void Start()
     {
+        timer = FindObjectOfType<Timer>();
         GetNextQuestion();
         // DisplayQuestion();
+    }
+    void Update()
+    {
+        timerImage.fillAmount = timer.fillFraction;
+        if(timer.loadNextQuestion)
+        {
+            hasAnsweredEarly = false;
+            GetNextQuestion(); 
+            timer.loadNextQuestion = false; 
+        }
+        else if(!hasAnsweredEarly && !timer.isAnsweringQuestion)
+        {
+            DisplayAnswer(-1);
+            SetButtonState(false);
+        }
     }
 
     public void OnAnswerSelected(int index)
     {
+        hasAnsweredEarly = true;
+        DisplayAnswer(index);
+        SetButtonState(false);
+        timer.CancelTimer();
+    }
+
+    void DisplayAnswer(int index )
+    {
         Image buttonImage;
-        if(index == question.GetCorrectAnswerIndex())
+        if(index == currentQuestion.GetCorrectAnswerIndex())
         {
             questionText.text = "Doğru!";
             buttonImage = answerButtons[index].GetComponent<Image>();
@@ -30,32 +66,36 @@ public class Quiz : MonoBehaviour
         }
         else 
         {
-            correctAnswerIndex = question.GetCorrectAnswerIndex();
-            string correctAnswer = question.GetAnswer(correctAnswerIndex);
+            correctAnswerIndex = currentQuestion.GetCorrectAnswerIndex();
+            string correctAnswer = currentQuestion.GetAnswer(correctAnswerIndex);
             questionText.text = "Üzgünüm doğru cevap '" + correctAnswer + "' olacaktı!";
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
         }
 
-        SetButtonState(false);
     }
 
     void GetNextQuestion()
     {
         SetButtonState(true);
         SetDefaultButtonSprite();
+        GetRandomQuestion();
         DisplayQuestion(); 
     }
 
+    void GetRandomQuestion()
+    {
+        // int index = Random.Range(0, questions.Count);
+    }
 
     public void DisplayQuestion()
     {
-        questionText.text = question.GetQuestion();
+        questionText.text = currentQuestion.GetQuestion();
 
         for (int i = 0; i < answerButtons.Length; i++)
         {
             TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text  = question.GetAnswer(i);  
+            buttonText.text  = currentQuestion.GetAnswer(i);  
         } 
     }
 
